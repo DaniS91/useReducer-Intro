@@ -1,4 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from 'react';
+
+//this is our useReducer hook
+
+//usereducer requires an object to define initial state
+const initialState = {
+  counter: 0
+}
+//now we need the reducer funciton
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return {
+        counter: state.counter + 1
+      };
+    default:
+      throw new Error(`There is no action matching ${action.type}.`);
+  }
+}
+
 
 function Counter() {
 const [counter, setCounter] = useState(0);
